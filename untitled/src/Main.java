@@ -18,11 +18,44 @@ public class Main {
         //System.out.println(sumOfDigitsRecursive(-666));
         //System.out.println(powerOfaNumberRecursive(3, 6));
         //System.out.println(powerOfaNumber(3, 6));
-        System.out.println(calculatePrimeNumbers(100));
-        System.out.println(calculateGCD(129992, 159992));
-        System.out.println(calculateGCDRecursive(129992, 159992));
-        System.out.println(calculateGCDRecursiveEuclideanStart(129992, 159992));
+//        System.out.println(calculatePrimeNumbers(100));
+//        System.out.println(calculateGCD(129992, 159992));
+//        System.out.println(calculateGCDRecursive(129992, 159992));
+//        System.out.println(calculateGCDRecursiveEuclideanStart(129992, 159992));
+//        System.out.println(calculateBinaryFromInt(3010));
+//        System.out.println(calculateBinaryFromIntRecursiveStart(3010));
 
+    }
+    private static ArrayList<Integer> calculateBinaryFromIntRecursiveStart(int n){
+        ArrayList<Integer> binary = new ArrayList<>();
+        if(n<2){
+            if(n<0)
+                binary.add(-1);
+            else
+                binary.add(n);
+            return binary;
+        }
+        return calculateBinaryFromIntRecursive(binary,n);
+
+    }
+    private static ArrayList<Integer> calculateBinaryFromIntRecursive(ArrayList<Integer> array,int n){
+
+        if(n > 1){
+            array.add(n%2);
+            return calculateBinaryFromIntRecursive(array, n/2);
+        }
+        array.add(n);
+        return array;
+    }
+
+    private static ArrayList<Integer> calculateBinaryFromInt(int n){
+        ArrayList<Integer> binary = new ArrayList<>();
+        while(n/2 > 0){
+            binary.add(n%2);
+            n /= 2;
+        }
+        binary.add(n);
+        return binary;
     }
     private static int calculateGCDRecursive(int a, int b){
         if(a == 0) return b;
