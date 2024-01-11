@@ -24,7 +24,50 @@ public class Main {
 //        System.out.println(calculateGCDRecursiveEuclideanStart(129992, 159992));
 //        System.out.println(calculateBinaryFromInt(3010));
 //        System.out.println(calculateBinaryFromIntRecursiveStart(3010));
+//        System.out.println(reverseString("Hello World!"));
+//        System.out.println(reverseStringRecursive("Hello World!"));
+//        System.out.println(palindrome("aasaas"));
+//        System.out.println(palindromeRecursiveStart("aaaa"));
+        System.out.println(firstLetterUppercase("martin miguel salas"));
 
+    }
+    private static String firstLetterUppercase(String str){
+        String[] strSplit = str.split(" ");
+        String result = "";
+        for (String string : strSplit){
+            result = result + " " + Character.toUpperCase(string.charAt(0)) +string.substring(1);
+        }
+        return result.trim();
+    }
+    private static boolean palindromeRecursiveStart(String str){
+        String reversed = reverseStringRecursive(str);
+        return reversed.equals(str);
+
+    }
+    private static boolean palindrome(String str){
+        boolean result = true;
+        int maxIterations = str.length()/2-1;
+
+        for (int i = 0; i<maxIterations;i++){
+            if(str.charAt(i)!=str.charAt(maxIterations-i)){
+                result = false;
+            };
+        }
+        return result;
+    }
+    private static String reverseString(String str) {
+        String reversed = "";
+
+        for (int i= str.length(); i >= 1; i--){
+            reversed = reversed + str.charAt(i-1);
+        }
+
+        return reversed;
+    }
+
+    private static String reverseStringRecursive(String str){
+        if(str.length() == 1) return str;
+        return reverseString(str.substring(1)) + str.charAt(0);
     }
     private static ArrayList<Integer> calculateBinaryFromIntRecursiveStart(int n){
         ArrayList<Integer> binary = new ArrayList<>();
