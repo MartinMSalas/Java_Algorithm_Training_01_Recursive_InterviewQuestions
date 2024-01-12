@@ -28,8 +28,30 @@ public class Main {
 //        System.out.println(reverseStringRecursive("Hello World!"));
 //        System.out.println(palindrome("aasaas"));
 //        System.out.println(palindromeRecursiveStart("aaaa"));
-        System.out.println(firstLetterUppercase("martin miguel salas"));
+        //System.out.println(firstLetterUppercase("martin miguel salas"));
+        ArrayList<Integer> numberList = new ArrayList<>(Arrays.asList(1,5,6,7,2,4,7,8));
 
+        //System.out.println(sumAndProductOfArray(numberList));
+        //System.out.println(pairs(numberList));
+    }
+    private static ArrayList<Integer> pairs(ArrayList<Integer> listOfNumbers){
+        // BigO complexity O(n^2)
+        ArrayList<Integer> pairsList = new ArrayList<>();
+        for(Integer number: listOfNumbers){
+            for (Integer otherNumber: listOfNumbers){
+                pairsList.add(number*10+otherNumber);
+            }
+        }
+        return pairsList;
+    }
+    private static int sumAndProductOfArray(ArrayList<Integer> arrayList){
+        int resultSum=0;
+        int resultProduct =1;
+        for (Integer integer : arrayList) {
+            resultSum += integer;
+            resultProduct *= integer;
+        }
+        return resultSum;
     }
     private static String firstLetterUppercase(String str){
         String[] strSplit = str.split(" ");
