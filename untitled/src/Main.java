@@ -33,6 +33,14 @@ public class Main {
 
         //System.out.println(sumAndProductOfArray(numberList));
         //System.out.println(pairs(numberList));
+        System.out.println(reverseArray(numberList));
+    }
+    private static ArrayList<Integer> reverseArray(ArrayList<Integer> listOfNumbers){
+        ArrayList<Integer> reversedArray = new ArrayList<>();
+        for (int i=listOfNumbers.size()-1; i>=0;i--){
+            reversedArray.add(listOfNumbers.get(i));
+        }
+        return reversedArray;
     }
     private static ArrayList<Integer> pairs(ArrayList<Integer> listOfNumbers){
         // BigO complexity O(n^2)
